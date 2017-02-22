@@ -1,0 +1,20 @@
+
+<section class="free-home">
+    <div class="free-home__header">
+        <h3>限時免費</h3>
+    </div>
+    <ul class="free__list utb-3">
+        <li class="free__item" v-for="item in free">
+            <a href="/book?id={{item.fiction_id}}">
+                <div class="rec-cover">
+                    <img alt="{{item.title}}" v-bind:src="item.data.cover"/>
+                    <p class="book-free u-tag">限免</p>
+                </div>
+                <p class="rec-title">{{item.ad_name}}</p>
+            </a>
+        </li>
+    </ul>
+    <div class="free__footer">
+        <div class="to">更多限免佳作>></div>
+    </div>
+</section>

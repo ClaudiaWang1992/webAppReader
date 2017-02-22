@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="formate-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/all.css">
+    <title>书城首页</title>
+    <style type="text/css">
+        #app{
+            height:100%;
+            position:relative;
+        }
+        .container-warp{
+            height:100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .container-scroll{
+            position: absolute;
+            top:45px;
+            bottom:0px;
+            left:0px;
+            right: 0px;
+            overflow-y:scroll;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" style="overflow:hidden;" v-bind:style="{width:screen_width+'px'}">
+        <% include include/header.html %>
+       <div v-bind:style="styleObject" v-bind:style="{width:screen_width*2+'px',height:content_height+'px',overflow:'hidden',transitionDuration:'.5s',transform:'translate3d('+position+'px,0px,0px)'}"  >
+       <!-- <div style="height:{{content_height}}px;overflow:hidden;width:{{ double_screen_width }}px;transition-duration:.5s;transform:translate3d({{ position }}px,0px,0px)">-->
+            <div class="container-warp"
+                 style="float:left;" v-bind:style="{width:screen_width+'px'}">
+                <div class="container-scroll" style="top:0px">
+                    <% include include/index-top.html %>
+                    <% include include/index-hot.html %>
+                    <% include include/index-recommend.html %>
+                    <% include include/index-female.html %>
+                    <% include include/index-male.html %>
+                    <% include include/index-free.html %>
+                    <% include include/index-bottom.html %>
+                </div>
+            </div>
+            <div class="shelf" style="float:left;" v-bind:style="{width:screen_width+'px'}">
+                <% include include/index-shelf.html %>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/zepto.js"></script>
+<script src="/static/js/pages/index.js"></script>
+</html>

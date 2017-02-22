@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="formate-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/all.css">
+    <title>排名</title>
+</head>
+<body>
+<div class="rank-channel" style="" id="app">
+    <div class="common-header">
+        <a class="backTolast" href="../">
+        </a>
+        <p>排行</p>
+        <a class="backToHome" href="../">
+        </a>
+    </div>
+    <div style="height:{{content_height}}px;overflow:hidden;position:relative;">
+        <div class="container-scroll" style="top:0px">
+            <ul class="rank__list">
+                <li class="list img_list" v-for="item in datas.items" v-if="$index>18">
+                    <a href="/book?id={{item.fiction_id}}">
+                        <div class="list_cover">
+                            <img v-bind:src="item.cover">
+                            <p class="book-finish">完结</p>
+                        </div>
+                        <div class="list_content">
+                            <div class="rank_info">
+                                <p class="book-desc" v-for="book in item.description">
+                                    <span class="rank-list__num">{{ $index + 1}}</span>{{ book }}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/zepto.js"></script>
+<script src="/static/js/pages/rank.js"></script>
+</body>
+</html>

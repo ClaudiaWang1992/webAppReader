@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/all.css">
+    <title></title>
+    <style text="text/css">
+        .top{
+            height:44px;
+            background:#efeff0;
+            border-bottom:1px solid #ddd;
+            position:absolute;
+            top:44px;
+            left:0;
+            right:0;
+        }
+        .search .top{
+
+        }
+        .search-input{
+            border:1px solid #666666;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    <div id="app_search" style="width:{{ screen_width }}px;overflow:hidden;">
+        <% include include/common-header.html %>
+
+        <div style="height:{{content_height}}px;overflow:hidden;width:{{ screen_width }}px;transition-duration:.5s;">
+            <div class="container-warp"
+                 style="width:{{ screen_width }}px;float:left;">
+                <div class="container-scroll" style="top:0px">
+                    <div class="search">
+                        <div class="top">
+                            <a href="javascript:" class="top__back"></a>
+                            <div id="search-input" class="search-input"> <b class="search-input__mi"></b>
+                                <input type="text" value="" id="search_box" placeholder="输入书名/作者/关键字"/>
+                                <div class="search-input__btn" v-on:click="doSearch()" >搜索</div>
+                            </div>
+                        </div>
+                        <div class="top__bd" v-show="condition">
+                            <div>
+                                <ul class="m-tag -color search-tag">
+                                    <li class="li-tag" id="Tag__128">我的绝美女神老婆</li>
+                                    <li class="li-tag" id="Tag__129">复仇千金</li>
+                                    <li class="li-tag" id="Tag__130">盗墓</li>
+                                    <li class="li-tag" id="Tag__131">豪门小老婆</li>
+                                    <li class="li-tag" id="Tag__132">庶女</li>
+                                    <li class="li-tag" id="Tag__133">神医</li>
+                                    <li class="li-tag" id="Tag__134">魔兽</li>
+                                    <li class="li-tag" id="Tag__135">我的老婆是双胞胎</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="top__bd" v-show="!condition">
+                            <ul class="book-list">
+                                <li v-for="item in search" class="list">
+                                    <div class="u-book">
+                                        <div class="cnt">
+                                            <div class="list_cover">
+                                                <img alt="{{ item.title }}" v-bind:src="item.cover">
+                                                <div class="book-finish"></div>
+                                            </div>
+                                            <div class="list_content">
+                                                <h3 class="book-title single-line">{{ item.title }}</h3>
+                                                <p class="book-desc">{{ item.intro }}</p>
+                                                <div class="wrap">
+                                                    <p class="book-author single-line">
+                                                        <span>{{ item.authors }}</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="ListView ListView_complete" v-show="empty">
+                                <div class="ListView__empty">
+                                    <p class="u-tip">没有相应的搜索结果</p>
+                                </div>
+                                <div class="ListView__complete"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/zepto.js"></script>
+<script src="/static/js/pages/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="formate-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/all.css">
+    <title>男生频道</title>
+</head>
+<body>
+    <div class="male-channel" style="" id="app">
+       <div class="common-header">
+        <a class="backTolast" href="../">
+        </a>
+        <p>男生频道</p>
+        <a class="backToHome" href="../">
+        </a>
+        </div>
+        <div style="height:{{content_height}}px;overflow:hidden;position:relative;">
+            <div class="container-scroll" style="top:0px">
+               <section class="male_section" v-for="section in datas.items" style="100%;overflow:hidden;">
+                   <div class="section__header">
+                       <h3>{{section.ad_name}}</h3>
+                   </div>
+                   <ul class="male__list">
+                       <li class="list img_list" v-for="item in section.data.data">
+                           <a href="/book?id={{item.fiction_id}}">
+                               <div class="list_cover">
+                                   <img alt="{{item.title}}" v-bind:src="item.cover">
+                                   <p class="book-finish">完结</p>
+                               </div>
+                               <div class="list_content">
+                                   <h3 class="book-title">{{item.title}}</h3>
+                                   <p class="book-author">{{item.authors}}</p>
+                                   <p class="book-desc">{{item.summary}}</p>
+                                   <div class="book_tag">
+                                       <em v-for="tag in item.tags">{{tag}}</em>
+                                   </div>
+                               </div>
+                           </a>
+                       </li>
+                   </ul>
+               </section>
+            </div>
+        </div>
+
+    </div>
+    <script src="/static/js/vue.js"></script>
+    <script src="/static/js/zepto.js"></script>
+    <script src="/static/js/pages/channel.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/all.css">
+</head>
+<body>
+<div class="categroy-channel" style="" id="app">
+    <div class="common-header">
+        <a class="backTolast" href="../">
+        </a>
+        <p>分类</p>
+        <a class="backToHome" href="../">
+        </a>
+    </div>
+    <div style="height:{{content_height}}px;overflow:hidden;position:relative;">
+        <div class="container-scroll" style="top:0px">
+            <section class="categroy-section" >
+                <div class="section__header">
+                    <h3>网文男频</h3>
+                </div>
+                <ul class="male__list u-list-2col">
+                    <li class="ulist" v-for="item in datas.male">
+                        <a href=":javascript">
+                            <div class="warp" style="background-image:url({{item.new_image}});">
+                                <p class="categroy_title">{{item.label}}</p>
+                                <p class="categroy_num">{{item.count}}</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <section class="categroy-section" >
+                <div class="section__header">
+                    <h3>网文女频</h3>
+                </div>
+                <ul class="male__list u-list-2col">
+                    <li class="ulist" v-for="item in datas.female">
+                        <a href=":javascript">
+                            <div class="warp" style="background-image:url({{item.new_image}});">
+                                <p class="categroy_title">{{item.label}}</p>
+                                <p class="categroy_num">{{item.count}}</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</div>
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/zepto.js"></script>
+<script src="/static/js/pages/categroy.js"></script>
+</body>
+</html>

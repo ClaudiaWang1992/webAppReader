@@ -1,0 +1,53 @@
+
+ <section class="top-home">
+     <a href="/search">
+         <div class="top-home__search">输入书名/作者/关键字</div>
+     </a>
+     <div class="slider-banner" :style="{width:screen_width+'px'}">
+         <!--width:{{topNum}}*screen_width width:3680px-->
+         <div class="slider-banner__content" :style="bannerObject">
+        <!-- <div class="slider-banner__content" style="width:{{ screen_width*(topNum+2) }}px;height:100%;transition-duration:{{duration}}s;transform:translate3d({{ banner_left }}px,0px,0px)">-->
+             <a v-for="item in top" v-if="$index==topNum-1" href="{{ item.reference_id}}" :style="{width:screen_width+'px'}">
+                 <img class="cover" v-bind:src="item.ad_pic_url" :style="{width:screen_width+'px'}">
+             </a>
+             <a v-for="item in top" href="{{ item.reference_id}}" :style="{width:screen_width+'px'}">
+                 <img class="cover" v-bind:src="item.ad_pic_url" :style="{width:screen_width+'px'}">
+             </a>
+             <!--想在所有图片加载完毕后能够立刻显示轮播效果，这里通过给最后一个图片加load事件能够完成-->
+             <a v-for="item in top" v-if="$index==0" href="{{ item.reference_id}}" :style="{width:screen_width+'px'}">
+                 <img class="cover" v-bind:src="item.ad_pic_url" :style="{width:screen_width+'px'}" v-on:load="bannerSlide()">
+             </a>
+         </div>
+         <div class="banner-banner-tab">
+             <div class="banner-tab">
+                 <a v-for="item in top" ></a>
+             </div>
+         </div>
+     </div>
+     <ul class="top-home__btn">
+         <li>
+             <a href="/male">
+                 <img src="/static/img/male.png" class="top-home__icon"/>
+                 <p class="top-home__des">男生</p>
+             </a>
+         </li>
+         <li>
+             <a href="/female">
+                 <img src="/static/img/female.png" class="top-home__icon"/>
+                 <p class="top-home__des">女生</p>
+             </a>
+         </li>
+         <li>
+             <a href="/categroy">
+                 <img src="/static/img/category.png" class="top-home__icon"/>
+                 <p class="top-home__des">分类</p>
+             </a>
+         </li>
+         <li>
+             <a href="/rank">
+                 <img src="/static/img/rank.png" class="top-home__icon" />
+                 <p class="top-home__des">排名</p>
+             </a>
+         </li>
+     </ul>
+ </section>

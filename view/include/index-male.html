@@ -1,0 +1,28 @@
+
+<section class="male-home">
+    <div class="male-home__header">
+        <h3>男生最爱</h3>
+    </div>
+    <ul class="male-home__list">
+        <li class="list img_list" v-for="item in male" v-if="$index<5">
+            <a href="/book?id={{item.fiction_id}}">
+                <div class="list_cover">
+                    <img alt="{{item.title}}" v-bind:src="item.cover">
+                    <p class="book-finish">完结</p>
+                </div>
+                <div class="list_content">
+                    <h3 class="book-title">{{item.title}}</h3>
+                    <p class="book-author">{{item.authors}}</p>
+                    <p class="book-desc">{{item.summary}}</p>
+                    <div class="book_tag">
+                        <em v-for="tag in item.tags">{{tag}}</em>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <div class="male-home__footer">
+        <div class="change">换一换</div>
+        <div class="to">男生频道>></div>
+    </div>
+</section>
